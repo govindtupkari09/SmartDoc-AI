@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ask questions about your PDF with SmartDoc AI.">
+  <title>SmartDoc AI | Document Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">S</span><span>SmartDoc <b>AI</b></span></div>
+      <p class="side-label">WORKSPACE</p>
+      <div class="nav-item active"><span>✦</span> Document Chat</div>
+      <div class="sidebar-status"><p>System status</p><span><i></i> RAG assistant ready</span><small>Knowledge base: AWS notes PDF</small></div>
+      <div class="side-footer">Private document workspace</div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar"><div><small>WORKSPACE / DOCUMENTS</small><h2>Document Assistant</h2></div><div class="badge"><span>✦</span> AI powered</div></header>
+      <section class="content">
+        <div class="eyebrow"><span>✦</span> YOUR PERSONAL AI RESEARCH ASSISTANT</div>
+        <h1>Your documents.<br><span>Intelligent answers.</span></h1>
+        <p class="intro">Ask questions about your PDF and get answers grounded in its content. SmartDoc AI retrieves relevant passages and uses AI to help you understand your document.</p>
+
+        <div class="composer">
+          <form id="chat-form">
+            <input id="question-input" type="text" maxlength="2000" placeholder="Ask anything about your PDF..." autocomplete="off" aria-label="Ask a question" required>
+            <button id="ask-button" type="submit">Ask AI <span>→</span></button>
+          </form>
+          <div class="composer-meta"><span>↵ Enter your question</span><span>RAG + Gemini</span></div>
+        </div>
+
+        <div id="welcome-content">
+          <div class="section-heading">TRY ASKING <span>Example questions</span></div>
+          <div class="suggestion-grid">
+            <button class="suggestion-card" type="button" data-question="What is Amazon Web Services (AWS)?"><span class="card-icon">☁</span><strong>Understand the basics</strong><small>What is Amazon Web Services?</small><span class="card-arrow">↗</span></button>
+            <button class="suggestion-card" type="button" data-question="Explain the main AWS cloud services mentioned in the document."><span class="card-icon">ϟ</span><strong>Explore AWS services</strong><small>Explain the main AWS cloud services.</small><span class="card-arrow">↗</span></button>
+            <button class="suggestion-card" type="button" data-question="What are the benefits of cloud computing?"><span class="card-icon">◇</span><strong>Learn key concepts</strong><small>What are the benefits of cloud computing?</small><span class="card-arrow">↗</span></button>
+            <button class="suggestion-card" type="button" data-question="Summarize the important points from this document."><span class="card-icon">▤</span><strong>Summarize the PDF</strong><small>Summarize the important points.</small><span class="card-arrow">↗</span></button>
+          </div>
+        </div>
+        
+        
+        <div class="chat-history-header">
+          <h3>Chat History</h3>
+          <button id="clear-chat-button" type="button">Clear Chat</button>
+        </div>
+
+          <section id="chat-messages" class="chat-messages" aria-live="polite"></section>
+        <h3>Chat History</h3>
+        <button id="clear-chat-button" type="button">Clear Chat</button>
+        </div>
+
+        <section id="chat-messages" class="chat-messages" aria-live="polite"></section>
+
+        <footer>SmartDoc AI · Answers generated from your document context</footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
